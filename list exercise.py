@@ -44,7 +44,7 @@ for i in range(0,len(x)):
             x[i],x[j] = x[j],x[i]
 print(x)
 '''
-#linear Search,
+'''
 x = [1,89,23,98,34,-100,20]
 
 user = int(input("Enter Number :"))
@@ -53,29 +53,38 @@ if user in x:
     print("Found")
 else:
     print("Not Found")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+'''
+#linear Search & binary Search,
+#linear Search
+x = [1,89,23,98,34,-100,20]
+'''
+for i in range(0,len(x)):
+    if user == x[i]:
+        print(f"{user} found at {i}")
         
+        break
+else:
+    print("Not found")
+'''
+#binary Search
+#list must be sorted
+x = [1,89,23,98,34,-100,20]
+user = int(input("Enter Number :"))
+x.sort()
+left =0
+right = len(x)-1
+while left<=right:
+    mid = (left+right)//2
 
+    if user > x[mid]:
+        left = mid+1
 
-
-
-
+    elif user == x[mid]:
+        print(f"{user} found at {mid}")
+        break
+    else:
+        right = mid-1
+        
+else:
+    print("value not found")
 
