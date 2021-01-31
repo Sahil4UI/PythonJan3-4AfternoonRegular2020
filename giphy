@@ -1,0 +1,17 @@
+import urllib.request as url
+import json
+
+choice = input("Enter Gif you wanna download").replace(" ","+")
+path="https://api.giphy.com/v1/gifs/search?q="+choice+"&api_key=tZGl4kTrdY5Q2MRt0Vr7hiwA0NdjcfsI&limit=5"
+
+res = url.urlopen(path)
+data = json.load(res)
+data = data["data"]
+
+
+for i in range(len(data)):
+    img = data[i]['images']['original']['url']
+    url.urlretrieve(img,f"img_{i}.gif")
+    print(f" img_{i} downloaded")
+
+print("download sucessfull")
